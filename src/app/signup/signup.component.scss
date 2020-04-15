@@ -1,0 +1,53 @@
+.title {
+    padding-top: 2rem;
+    --color: #383a3e;
+    text-align: center;
+    font-weight: bold;
+}
+ion-item {
+    --color: #2bb573;
+    margin-bottom: 1rem;
+
+    ion-label {
+        --color: #92949c;
+    }
+
+    ion-input {
+        --color: #222428;
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+}
+.last {
+    margin-bottom: 2rem;
+}
+
+ion-button {
+    margin: 0 auto;
+    width: 80%;
+}
+
+ion-select {
+    --placeholder-color: #222428;
+}
+ion-list-header {
+    margin-bottom: 1rem;
+}
+
+.list-item {
+    ion-label {
+        --color: #222428;
+    }
+}
+
+.add-button {
+    margin-bottom: 1rem;
+}
+
+.shift {
+    margin-bottom: 1rem;
+}

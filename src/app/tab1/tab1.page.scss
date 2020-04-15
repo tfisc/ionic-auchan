@@ -1,3 +1,18 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    margin-bottom: 10px;
+  }
+}
+
+ion-slides{
+  height: 100%;
+}
