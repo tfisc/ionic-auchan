@@ -1,25 +1,28 @@
-import { Component } from '@angular/core';
-declare class JitsiMeetExternalAPI{ constructor(domain, options) };
+import { Component, OnInit } from '@angular/core';
+import { Plugins } from '@capacitor/core';
+import 'capacitor-jitsi-meet';
+
+const { Jitsi } = Plugins;
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
 
-  constructor() {}
+  constructor() { }
 
-  ac: AppComponent = new AppComponent()
-}
+  ngOnInit() {
 
-export class AppComponent {
-  showJitsi(){
-    const domain = 'meet.jit.si';
-    const options = {
-        roomName: 'workshopg1test',
-        heigth: 700,
-        parentNode: document.querySelector('#meet')
-    };
-    const api = new JitsiMeetExternalAPI(domain, options);
   }
+
+  async startVideo() {
+    const result = await Jitsi.joinConference({
+      roomName: 'room1', // room identifier for the conference
+      url: 'https://meet.jit.si', // endpoint of the Jitsi Meet video bridge,
+      startWithAudioMuted: true, // start with audio muted
+      startWithVideoMuted: false // start with video muted
+    });
+  }
+
 }

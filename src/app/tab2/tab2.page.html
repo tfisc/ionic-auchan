@@ -7,14 +7,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
- <!-- <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header> -->
-  <button ion-button (click) = "ac.showJitsi()" icon-start large round color="dark">
-    JOIN
-  </button>
-  <div id="meet" style="height: 90%;"></div>
+  <ion-button expand="block" (click)="startVideo()">REJOINDRE LE COURS</ion-button>
 
 </ion-content>
