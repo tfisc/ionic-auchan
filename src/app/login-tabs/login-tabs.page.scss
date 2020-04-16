@@ -1,1 +1,47 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  border-bottom: 2rem;
+}
+ion-item {
+  --background: primary;
+  --color: white;
+  margin-bottom: 1rem;
+}
+
+ion-item:first-of-type {
+  margin-top: 2rem;
+;
+}
+
+.last {
+  margin-bottom: 2rem;
+}
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.label{
+  margin-bottom: 1rem;
+}
+ion-button {
+  --border-color: white;
+  --color: white;
+  --color-activated: #2bb573;
+  --background-activated: white;
+  --color-hover: primary;
+  width: 50%;
+  margin-bottom: 1rem;
+}
 
