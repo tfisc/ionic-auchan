@@ -11,6 +11,4 @@ export class EnfantComponent implements OnInit {
 
   ngOnInit() { }
 
-
-
 }
