@@ -9,11 +9,15 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./login-tabs/login-tabs.module').then(m => m.LoginTabsPageModule)
   },
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule)
+  },
+  {
+    path: 'enfant',
+    loadChildren: () => import('./enfant/enfant.module').then(m => m.EnfantModule)
   },
 
 ];
