@@ -1,6 +1,12 @@
 <ion-content [fullscreen]=true color="primary" scroll-x=false scroll-y=false>
     <div class="container">
-        <div *ngIf="prochainCours; else nonextcourse">
+        <!-- fab placed to the top end -->
+        <ion-fab vertical="top" horizontal="end" slot="fixed" >
+            <ion-fab-button color="danger">
+                <ion-icon name="close"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+        <div style="text-align: center;" *ngIf="prochainCours; else nonextcourse">
             <h1>Prochain cours</h1>
             <p style="font-size: 24px;">Math</p>
             <ion-card>

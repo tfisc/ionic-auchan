@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'enfant',
     loadChildren: () => import('./enfant/enfant.module').then(m => m.EnfantModule)
   },
+  {
+    path: 'notation',
+    loadChildren: () => import('./notation/notation.module').then(m => m.NotationModule)
+  },
 
 ];
 @NgModule({
