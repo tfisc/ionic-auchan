@@ -1,11 +1,32 @@
 ion-col{
   width: 100%;
   height: 33vh;
+  vertical-align: middle;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+ion-row{
+
 }
 ion-content{
+  padding: 25px 10px;
   height: 100vh;
 }
 img{
-  width: 200px;
+  width: 100px;
   height: auto;
+
+}
+
+ion-button {
+  --border-color: white;
+  --color: white;
+  --color-activated: #2bb573;
+  --background-activated: white;
+  --color-hover: primary;
+  width: 50%;
+  margin-bottom: 1rem;
 }
