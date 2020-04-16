@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Recherche de Cours
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item>
+      <ion-icon name="library-outline"></ion-icon>
+      <ion-label>Matière</ion-label>
+      <ion-select ok-text="Ok" cancel-text="Annuler" placeholder="Sélectionnez une matière">
+        <ion-select-option value="1">Français</ion-select-option>
+        <ion-select-option value="2">Mathématiques</ion-select-option>
+        <ion-select-option value="3">Anglais</ion-select-option>
+        <ion-select-option value="4">Espagnol</ion-select-option>
+        <ion-select-option value="5">Physique</ion-select-option>
+        <ion-select-option value="6">SVT</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="school-outline"></ion-icon>
+      <ion-label>Classe</ion-label>
+      <ion-select ok-text="Ok" cancel-text="Annuler" placeholder="Sélectionnez une classe">
+        <ion-select-option value="1">CP</ion-select-option>
+        <ion-select-option value="2">CE1</ion-select-option>
+        <ion-select-option value="3">CE2</ion-select-option>
+        <ion-select-option value="4">CM1</ion-select-option>
+        <ion-select-option value="5">CM2</ion-select-option>
+        <ion-select-option value="6">6ème</ion-select-option>
+        <ion-select-option value="7">5ème</ion-select-option>
+        <ion-select-option value="8">4ème</ion-select-option>
+        <ion-select-option value="9">3ème</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+    <ion-item>
+      <ion-icon name="today-outline"></ion-icon>
+      <ion-label>Date</ion-label>
+      <ion-datetime value="2020-04-15" display-format="DD MMMM YYYY" picker-format="DD MMMM YYYY"  placeholder="Sélectionner une date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="time-outline"></ion-icon>
+      <ion-label>Heure de début</ion-label>
+      <ion-datetime display-format="HH:mm" picker-format="HH:mm" value="2020-04-15T07:00Z"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="stopwatch-outline"></ion-icon>
+      <ion-label>Durée</ion-label>
+      <ion-select ok-text="Ok" cancel-text="Annuler" placeholder="Sélectionnez une durée">
+        <ion-select-option value="30min">30min</ion-select-option>
+        <ion-select-option value="1h">1h00</ion-select-option>
+        <ion-select-option value="1h30">1h30 </ion-select-option>
+        <ion-select-option value="4">2h00</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="block">RECHERCHER</ion-button>
+  </ion-list>
+
+</ion-content>
