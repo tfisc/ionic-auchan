@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">workshop</string>
+    <string name="title_activity_main">workshop</string>
+    <string name="package_name">workshop.auchan</string>
+    <string name="custom_url_scheme">workshop.auchan</string>
+</resources>
