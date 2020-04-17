@@ -23,7 +23,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../liste-cours/liste-cours.module').then(m => m.ListeCoursModule)
+              import('../liste-cours/liste-cours.module').then(m => m.listeCoursPageModule)
           }
         ]
       },
@@ -33,7 +33,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../liste-cours/liste-cours.module').then(m => m.ListeCoursModule)
+              import('../liste-cours/liste-cours.module').then(m => m.listeCoursPageModule)
           }
         ]
       },
@@ -85,4 +85,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EtudiantPageRoutingModule {}
+export class EtudiantPageRoutingModule { }

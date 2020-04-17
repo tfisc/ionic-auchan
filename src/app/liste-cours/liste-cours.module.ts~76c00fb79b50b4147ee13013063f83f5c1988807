@@ -1,10 +1,12 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { listeCoursPage } from './liste-cours.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { RouterModule } from '@angular/router';
+import { ListeCoursComponent } from './liste-cours.component';
+
+
 
 @NgModule({
   imports: [
@@ -12,8 +14,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: listeCoursPage }])
+    RouterModule.forChild([{ path: '', component: ListeCoursComponent }])
   ],
-  declarations: [listeCoursPage]
+  declarations: [ListeCoursComponent]
 })
-export class listeCoursPageModule {}
+export class ListeCoursModule { }
