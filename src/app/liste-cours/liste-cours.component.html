@@ -1,0 +1,23 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Liste de cours</ion-title>
+    <ion-buttons>
+      <ion-menu-button autoHide="true"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let c of cours">
+      <ion-card expand="block" button="true" [routerLink]="['/jitsi']">
+        <ion-card-header>
+          <ion-card-title>{{c.matiere}}</ion-card-title>
+          <ion-card-subtitle>{{c.date}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{c.personne}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
