@@ -2,28 +2,28 @@
   <ng-container *ngIf="stepIndex === 1">
     <ion-header translucent>
       <ion-toolbar>
-        <ion-title>Mes informations</ion-title>
+        <ion-title>Mes informations personelles</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-item>
       <ion-label position="floating">Nom</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="student.nom"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Prénom</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="student.prenom"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Adresse Email</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="student.mail"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Mot de passe</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="student.password"></ion-input>
     </ion-item>
     <ion-item class="last">
       <ion-label position="floating">Présente toi en quelques mots</ion-label>
-      <ion-textarea auto-grow=true></ion-textarea>
+      <ion-textarea auto-grow=true [(ngModel)]="student.description"></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-icon slot="end" name="camera" (click)="takePicture()"></ion-icon>
@@ -35,6 +35,26 @@
   <ng-container *ngIf="stepIndex === 2">
     <ion-header translucent>
       <ion-toolbar>
+        <ion-title>Mes études</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-item>
+      <ion-label>Établissement</ion-label>
+      <ion-select [(ngModel)]="student.etablissement" placeholder="Établissement">
+        <ion-select-option *ngFor="let etab of etablissements" [value]="etab">{{etab.libelle}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cursus</ion-label>
+      <ion-select [(ngModel)]="student.cursus" placeholder="Cursus">
+        <ion-select-option *ngFor="let curs of cursus" [value]="curs">{{curs.nom}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button size="large" expand="block" (click)="stepIndex = stepIndex + 1">Suivant</ion-button>
+  </ng-container>
+  <ng-container *ngIf="stepIndex === 3">
+    <ion-header translucent>
+      <ion-toolbar>
         <ion-title>Mes matières</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -43,13 +63,13 @@
         Je peux enseigner :
       </ion-list-header>
       <ion-item class="list-item" *ngFor="let subject of subjects">
-        <ion-label>{{subject}}</ion-label>
-        <ion-checkbox color="primary" slot="start" (ionChange)="subjectSelected(subject)"></ion-checkbox>
+        <ion-label>{{subject.libelle}}</ion-label>
+        <ion-checkbox color="primary" slot="start" (ionChange)="subjectSelected(subject, $event)"></ion-checkbox>
       </ion-item>
     </ion-list>
     <ion-button size="large" expand="block" (click)="stepIndex = stepIndex + 1">Suivant</ion-button>
   </ng-container>
-  <ng-container *ngIf="stepIndex === 3">
+  <ng-container *ngIf="stepIndex === 4">
     <ion-header translucent>
       <ion-toolbar>
         <ion-title>Mes horaires</ion-title>
@@ -85,7 +105,8 @@
         </ion-label>
       </ion-item>
     </ion-list>
-    <ion-button size="large" expand="block" (click)="stepIndex = stepIndex + 1" *ngIf="shifts.length > 0">Je valide mon
+    <ion-button size="large" expand="block" (click)="stepIndex = stepIndex + 1" *ngIf="shifts.length > 0"
+      (click)="validate()">Je valide mon
       inscription</ion-button>
   </ng-container>
 </ion-content>
