@@ -28,6 +28,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'rejoindre-cours',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../rejoindre-cours/rejoindre-cours.module').then(m => m.RejoindreCoursModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/parents/recherche-cours',
         pathMatch: 'full'
