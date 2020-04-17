@@ -125,4 +125,12 @@ export class SignupComponent implements OnInit {
         console.log(data);
       });
   }
+
+  getHours(minutes: number) {
+    return Math.trunc(minutes / 60)
+  }
+
+  getMinutes(minutes: number) {
+    return minutes % 60;
+  }
 }
