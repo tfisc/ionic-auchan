@@ -1,0 +1,27 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Demande de cours</ion-title>
+    <ion-buttons>
+      <ion-menu-button autoHide="true"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let c of cours">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{c.matiere}}</ion-card-title>
+          <ion-card-subtitle>{{c.date}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{c.personne}}</p>
+          <div style="text-align: center;">
+          <ion-button (click)="accept(c)">ACCEPTER</ion-button>
+          <ion-button color="danger" (click)="refuse(c)">REFFUSER</ion-button>
+        </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

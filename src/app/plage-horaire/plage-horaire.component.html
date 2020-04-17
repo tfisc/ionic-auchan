@@ -1,0 +1,37 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Mes horaires</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/etudiant"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label>Jour</ion-label>
+      <ion-select placeholder="Jour" [(ngModel)]="selectedDay">
+        <ion-select-option *ngFor="let day of days" [value]="day">{{day}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Heure de début</ion-label>
+      <ion-datetime display-format="HH:mm" picker-format="HH:mm" placeholder="hh : mm"
+        (ionChange)="startHourChanged($event)"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Heure de fin</ion-label>
+      <ion-datetime display-format="HH:mm" picker-format="HH:mm" placeholder="hh : mm"
+        (ionChange)="endHourChanged($event)"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  <ion-button class="add-button" size="large" expand="block" (click)="addShift()">Ajouter</ion-button>
+  <ion-list class="shifts">
+    <ion-item class="list-item" *ngFor="let shift of shifts; let i = index">
+      <ion-icon color="danger" slot="end" name="close-circle-outline" (click)="deleteShift(i)"></ion-icon>
+      <ion-label>{{shift.day}} de {{shift.startHour}}:{{shift.startMinutes}} à
+        {{shift.endHour}}:{{shift.endMinutes}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
