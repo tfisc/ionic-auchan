@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { RouterModule } from '@angular/router';
-import { LoginPage } from './login.page';
+import { ProfilComponent } from './profil.component';
 
 
 
@@ -14,8 +14,8 @@ import { LoginPage } from './login.page';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: LoginPage }])
+    RouterModule.forChild([{ path: '', component: ProfilComponent }])
   ],
-  declarations: [LoginPage]
+  declarations: [ProfilComponent]
 })
-export class LoginModule { }
+export class ProfilModule { }
