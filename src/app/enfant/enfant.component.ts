@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EnfantComponent implements OnInit {
 
   constructor() { }
-  prochainCours = false;
+  prochainCours = true;
   matiere = 'Math';
   imageEtudiantSrc = '../../assets/thor.jpg';
   nomEtudiant = 'Nom étudiant';
