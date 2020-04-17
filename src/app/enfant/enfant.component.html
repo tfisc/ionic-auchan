@@ -1,0 +1,34 @@
+<ion-content [fullscreen]=true color="primary" scroll-x=false scroll-y=false>
+    <div class="container">
+        <!-- fab placed to the top end -->
+        <ion-fab vertical="top" horizontal="end" slot="fixed" >
+            <ion-fab-button color="danger">
+                <ion-icon name="close"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+        <div style="text-align: center;" *ngIf="prochainCours; else nonextcourse">
+            <h1>Prochain cours</h1>
+            <p style="font-size: 24px;">{{matiere}}</p>
+            <ion-card>
+                <ion-card-header style="text-align: center">
+                    <img [src]="imageEtudiantSrc" alt="photo de l'étudiant">
+                    <ion-card-title>{{ nomEtudiant }}</ion-card-title>
+                    <ion-card-subtitle>{{ diplomeEtudiant }}</ion-card-subtitle>
+                    <ion-card-subtitle>{{ ecoleEtudiant }}</ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <p>{{ descriptionEtudiant }}</p>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-button size="large" expand="block" fill="outline">Rejoindre le cours</ion-button>
+        </div>
+        <ng-template #nonextcourse>
+            <p style="font-size: 24px;">Pas de prochain cours</p>
+
+        </ng-template>
+
+
+    </div>
+</ion-content>
