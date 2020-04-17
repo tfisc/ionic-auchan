@@ -35,6 +35,36 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'profil',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../profil/profil.module').then(m => m.ProfilModule)
+      }
+    ]
+  },
+  {
+    path: 'creation-compte-enfant',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../creation-compte-enfant/creation-compte-enfant.module').then(m => m.CreationCompteEnfantModule)
+      }
+    ]
+  },
+  {
+    path: 'profil-enfant',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../profil-enfant/profil-enfant.module').then(m => m.ProfilEnfantModule)
+      }
+    ]
+  },
+  {
     path: '',
     redirectTo: '/parents/recherche-cours',
     pathMatch: 'full'
