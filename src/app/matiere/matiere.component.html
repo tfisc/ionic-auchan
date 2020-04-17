@@ -7,11 +7,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  
+
   <ion-list>
     <ion-item class="list-item" *ngFor="let subject of subjects">
-      <ion-label>{{subject}}</ion-label>
-      <ion-checkbox color="primary" (ionChange)="subjectSelected(subject)"></ion-checkbox>
+      <ion-label>{{subject.libelle}}</ion-label>
+      <ion-checkbox color="primary" [checked]="isChecked(subject)" (ionChange)="subjectSelected(subject)">
+      </ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>

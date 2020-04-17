@@ -6,6 +6,7 @@ import { CursusService } from '../services/cursus.service';
 import { EtablissementService } from '../services/etablissement.service';
 import { MatiereService } from '../services/matiere.service';
 import { EtudiantService } from '../services/etudiant.service';
+import { UtilisateurService } from '../services/utilisateur.service';
 
 @Component({
   selector: 'app-signup',
@@ -46,11 +47,11 @@ export class SignupComponent implements OnInit {
     private readonly cursusService: CursusService,
     private readonly etablissementService: EtablissementService,
     private readonly matiereService: MatiereService,
-    private readonly etudiantService: EtudiantService
+    private readonly etudiantService: EtudiantService,
+    private readonly utilisateurService: UtilisateurService
   ) { }
 
   ngOnInit() {
-    console.log(moment().format('L'));
 
     this.cursusService.getAllCursus()
       .subscribe(data => {
@@ -122,12 +123,15 @@ export class SignupComponent implements OnInit {
     console.log(this.student);
     this.etudiantService.postStudent(this.student)
       .subscribe(data => {
-        console.log(data);
+        this.utilisateurService.user = data;
+        this.utilisateurService.setUser = data;
+        console.log(this.utilisateurService.getUser());
+
       });
   }
 
   getHours(minutes: number) {
-    return Math.trunc(minutes / 60)
+    return Math.trunc(minutes / 60);
   }
 
   getMinutes(minutes: number) {

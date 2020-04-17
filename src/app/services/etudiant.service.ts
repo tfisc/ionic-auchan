@@ -8,11 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class EtudiantService {
 
-  baseUrl = environment.baseUrl;
+  private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
   postStudent(student): Observable<any> {
     return this.http.post(`${this.baseUrl}/etudiant/create`, student);
+  }
+
+  loginStudent(credentials): Observable<any> {
+    return this.http.post(`${this.baseUrl}/etudiant/login`, credentials);
   }
 }

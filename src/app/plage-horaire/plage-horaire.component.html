@@ -27,10 +27,10 @@
   </ion-list>
   <ion-button class="add-button" size="large" expand="block" (click)="addShift()">Ajouter</ion-button>
   <ion-list class="shifts">
-    <ion-item class="list-item" *ngFor="let shift of shifts; let i = index">
+    <ion-item class="list-item" *ngFor="let shift of etudiant.horaires; let i = index">
       <ion-icon color="danger" slot="end" name="close-circle-outline" (click)="deleteShift(i)"></ion-icon>
-      <ion-label>{{shift.day}} de {{shift.startHour}}:{{shift.startMinutes}} à
-        {{shift.endHour}}:{{shift.endMinutes}}
+      <ion-label>{{shift.jour}} de {{getHours(shift.dateDebut)}}:{{getMinutes(shift.dateDebut)}} à
+        {{getHours(shift.dateFin)}}:{{getMinutes(shift.dateFin)}}
       </ion-label>
     </ion-item>
   </ion-list>

@@ -9,27 +9,28 @@
 <ion-content [fullscreen]="true">
   <ion-item>
     <ion-label position="floating">Nom</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="etudiant.nom"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Prénom</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="etudiant.prenom"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Adresse Email</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="etudiant.mail"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Mot de passe</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="etudiant.password"></ion-input>
   </ion-item>
   <ion-item class="last">
     <ion-label position="floating">Présente toi en quelques mots</ion-label>
-    <ion-textarea auto-grow=true></ion-textarea>
+    <ion-textarea auto-grow=true [(ngModel)]="etudiant.description"></ion-textarea>
   </ion-item>
   <ion-item>
     <ion-icon slot="end" name="camera" (click)="takePicture()"></ion-icon>
     <ion-label>Photo de profil</ion-label>
     <img *ngIf="photo !== undefined" [src]="photo" alt="">
   </ion-item>
+  <ion-button (click)="save()">SAUVEGARDER MES INFORMATIONS</ion-button>
 </ion-content>

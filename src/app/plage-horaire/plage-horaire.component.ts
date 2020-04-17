@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { UtilisateurService } from '../services/utilisateur.service';
 
 @Component({
   selector: 'app-plage-horaire',
@@ -8,18 +9,22 @@ import * as moment from 'moment';
 })
 export class PlageHoraireComponent implements OnInit {
 
-  days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+  etudiant = undefined;
+  days = ['LUNDI', 'MARDI', 'MERCREDI', 'JEUDI', 'VENDREDI', 'SAMEDI', 'DIMANCHE'];
   selectedDay: string = undefined;
   shifts = [];
-  stepIndex = 1;
   startHour: number = undefined;
   startMinutes: number = undefined;
   endHour: number = undefined;
   endMinutes: number = undefined;
-  
-  constructor() { }
 
-  ngOnInit() {}
+  constructor(
+    private readonly utilisateurService: UtilisateurService
+  ) { }
+
+  ngOnInit() {
+    this.etudiant = this.utilisateurService.user;
+  }
 
   startHourChanged(event: any) {
     this.startHour = parseInt(moment(event.detail.value).format('HH'), 10);
@@ -44,5 +49,13 @@ export class PlageHoraireComponent implements OnInit {
 
   deleteShift(index: number) {
     this.shifts.splice(index, 1);
+  }
+
+  getHours(minutes: number) {
+    return Math.trunc(minutes / 60);
+  }
+
+  getMinutes(minutes: number) {
+    return minutes % 60;
   }
 }
