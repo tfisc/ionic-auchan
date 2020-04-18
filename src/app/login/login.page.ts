@@ -18,6 +18,8 @@ export class LoginPage implements OnInit {
     password: ''
   };
 
+  childCode;
+
   constructor(
     public router: Router,
     private readonly etudiantService: EtudiantService,
@@ -31,19 +33,48 @@ export class LoginPage implements OnInit {
   }
 
   loginEtudiant() {
+    this.wrongCredentials = false;
     this.etudiantService.loginStudent(this.login)
       .subscribe(
         data => {
           this.utilisateurService.user = data;
-          this.utilisateurService.setUser = data;
+          this.utilisateurService.setUser(data);
           this.router.navigate(['/etudiant']);
         },
         error => {
           this.wrongCredentials = true;
         }
       )
+
   }
 
+  loginParent() {
+    this.wrongCredentials = false;
+    this.utilisateurService.login(this.login)
+      .subscribe(
+        data => {
+          this.utilisateurService.user = data;
+          this.utilisateurService.setUser(data);
+          this.router.navigate(['/parents']);
+        },
+        error => {
+          this.wrongCredentials = true;
+        }
+      );
+  }
 
-
+  loginEnfant() {
+    this.wrongCredentials = false;
+    this.utilisateurService.loginEnfant({ code: this.childCode })
+      .subscribe(
+        data => {
+          this.utilisateurService.user = data;
+          this.utilisateurService.setUser(data);
+          this.router.navigate(['/enfant']);
+        },
+        error => {
+          this.wrongCredentials = true;
+        }
+      );
+  }
 }

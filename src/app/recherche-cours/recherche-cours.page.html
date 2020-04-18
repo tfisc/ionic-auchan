@@ -12,13 +12,9 @@
     <ion-item>
       <ion-icon name="library-outline" slot="start"></ion-icon>
       <ion-label>Matière</ion-label>
-      <ion-select ok-text="Ok" cancel-text="Annuler" placeholder="Sélectionnez une matière">
-        <ion-select-option value="1">Français</ion-select-option>
-        <ion-select-option value="2">Mathématiques</ion-select-option>
-        <ion-select-option value="3">Anglais</ion-select-option>
-        <ion-select-option value="4">Espagnol</ion-select-option>
-        <ion-select-option value="5">Physique</ion-select-option>
-        <ion-select-option value="6">SVT</ion-select-option>
+      <ion-select ok-text="Ok" cancel-text="Annuler" [(ngModel)]="search.matiere"
+        placeholder="Sélectionnez une matière">
+        <ion-select-option *ngFor="let subject of subjects" [value]="subject">{{subject.libelle}}</ion-select-option>
       </ion-select>
     </ion-item>
     <!--<ion-item>
@@ -40,19 +36,22 @@
     <ion-item>
       <ion-icon name="today-outline" slot="start"></ion-icon>
       <ion-label>Date</ion-label>
-      <ion-datetime value="2020-04-15" display-format="DD MMMM YYYY" picker-format="DD MMMM YYYY"  placeholder="Sélectionner une date"></ion-datetime>
+      <ion-datetime (ionChange)="dateChanged($event)" value="2020-04-15" display-format="DD MMMM YYYY"
+        picker-format="DD MMMM YYYY" placeholder="Sélectionner une date"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-icon name="time-outline" slot="start"></ion-icon>
       <ion-label>Heure de début</ion-label>
-      <ion-datetime display-format="HH:mm" picker-format="HH:mm" value="2020-05-15T07:00Z"></ion-datetime>
+      <ion-datetime display-format="HH:mm" (ionChange)="startHourChanged($event)" picker-format="HH:mm"
+        value="2020-05-15T07:00Z"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-icon name="time-outline" slot="start"></ion-icon>
       <ion-label>Heure de fin</ion-label>
-      <ion-datetime display-format="HH:mm" picker-format="HH:mm" value="2020-05-15T08:00Z"></ion-datetime>
+      <ion-datetime display-format="HH:mm" (ionChange)="endHourChanged($event)" picker-format="HH:mm"
+        value="2020-05-15T08:00Z"></ion-datetime>
     </ion-item>
-    <ion-button expand="block">RECHERCHER</ion-button>
+    <ion-button expand="block" (click)="findStudents()">RECHERCHER</ion-button>
   </ion-list>
 
 </ion-content>

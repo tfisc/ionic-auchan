@@ -14,6 +14,11 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../recherche-cours/recherche-cours.module').then(m => m.rechercheCoursPageModule)
+          },
+          {
+            path: 'resultat',
+            loadChildren: () =>
+              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
           }
         ]
       },
@@ -45,4 +50,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsParentsPageRoutingModule {}
+export class TabsParentsPageRoutingModule { }

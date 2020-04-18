@@ -17,7 +17,16 @@ const routes: Routes = [
   },
   {
     path: 'enfant',
-    loadChildren: () => import('./enfant/enfant.module').then(m => m.EnfantModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./enfant/enfant.module').then(m => m.EnfantModule)
+      },
+      {
+        path: 'jitsi',
+        loadChildren: () => import('./tab2/tab2.module').then(m => m.Tab2PageModule)
+      },
+    ]
   },
   {
     path: 'login',

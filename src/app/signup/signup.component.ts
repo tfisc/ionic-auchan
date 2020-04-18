@@ -7,6 +7,8 @@ import { EtablissementService } from '../services/etablissement.service';
 import { MatiereService } from '../services/matiere.service';
 import { EtudiantService } from '../services/etudiant.service';
 import { UtilisateurService } from '../services/utilisateur.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -48,7 +50,9 @@ export class SignupComponent implements OnInit {
     private readonly etablissementService: EtablissementService,
     private readonly matiereService: MatiereService,
     private readonly etudiantService: EtudiantService,
-    private readonly utilisateurService: UtilisateurService
+    private readonly utilisateurService: UtilisateurService,
+    private readonly alertController: AlertController,
+    private readonly router: Router
   ) { }
 
   ngOnInit() {
@@ -122,11 +126,18 @@ export class SignupComponent implements OnInit {
     this.student.horaires = this.shifts;
     console.log(this.student);
     this.etudiantService.postStudent(this.student)
-      .subscribe(data => {
+      .subscribe(async (data) => {
         this.utilisateurService.user = data;
         this.utilisateurService.setUser = data;
-        console.log(this.utilisateurService.getUser());
-
+        const alert = await this.alertController.create({
+          header: 'Inscription validée',
+          subHeader: 'Merci de proposer votre aide',
+          message: 'Vous pouvez dès à présent vous connecter à l\'applciation',
+          buttons: ['OK']
+        });
+        await alert.present();
+        alert.onWillDismiss()
+          .then(() => this.router.navigate(['accueil']));
       });
   }
 

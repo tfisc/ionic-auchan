@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Résultat de la recherche
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,53 +9,19 @@
 <ion-content [fullscreen]="true">
 
   <ion-slides pager="true" [options]="options">
-    <ion-slide>
+    <ion-slide *ngFor="let student of students; let i = index">
       <div class="container">
         <ion-card>
           <ion-card-header>
-            <img src="../../assets/thor.jpg" alt="">
-            <ion-card-title>La daronne à brice</ion-card-title>
-            <ion-card-subtitle>Master 2 physique</ion-card-subtitle>
-            <ion-card-subtitle>Université de montpellier</ion-card-subtitle>
+            <img [src]="getPhoto(student)" alt="">
+            <ion-card-title>{{student.prenom}} {{student.nom}}</ion-card-title>
+            <ion-card-subtitle>{{student.cursus.nom}}</ion-card-subtitle>
+            <ion-card-subtitle>{{student.etablissement.libelle}}</ion-card-subtitle>
           </ion-card-header>
 
           <ion-card-content>
-            <p>Je sais pas faire de maths ni d'anglais, j'étais en classe de 3ème avec Martos.</p>
-            <ion-button expand="block">DEMANDER UN COURS</ion-button>
-          </ion-card-content>
-        </ion-card>
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="container">
-        <ion-card>
-          <ion-card-header>
-            <img src="../../assets/thor.jpg" alt="">
-            <ion-card-title>La daronne à brice</ion-card-title>
-            <ion-card-subtitle>Master 2 physique</ion-card-subtitle>
-            <ion-card-subtitle>Université de montpellier</ion-card-subtitle>
-          </ion-card-header>
-
-          <ion-card-content>
-            <p>Je sais pas faire de maths ni d'anglais, j'étais en classe de 3ème avec Martos.</p>
-            <ion-button expand="block">DEMANDER UN COURS</ion-button>
-          </ion-card-content>
-        </ion-card>
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="container">
-        <ion-card>
-          <ion-card-header>
-            <img src="../../assets/thor.jpg" alt="">
-            <ion-card-title>La daronne à brice</ion-card-title>
-            <ion-card-subtitle>Master 2 physique</ion-card-subtitle>
-            <ion-card-subtitle>Université de montpellier</ion-card-subtitle>
-          </ion-card-header>
-
-          <ion-card-content>
-            <p>Je sais pas faire de maths ni d'anglais, j'étais en classe de 3ème avec Martos.</p>
-            <ion-button expand="block">DEMANDER UN COURS</ion-button>
+            <p>{{student.description}}</p>
+            <ion-button expand="block" (click)="askLesson(i)">DEMANDER UN COURS</ion-button>
           </ion-card-content>
         </ion-card>
       </div>

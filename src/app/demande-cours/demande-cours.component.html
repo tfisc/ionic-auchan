@@ -11,11 +11,11 @@
     <ion-item *ngFor="let c of cours">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>{{c.matiere}}</ion-card-title>
-          <ion-card-subtitle>{{c.date}}</ion-card-subtitle>
+          <ion-card-title>{{c.idMatiere.libelle}} - {{c.idEnfant.idClasse.libelle}}</ion-card-title>
+          <ion-card-subtitle>{{getFormattedData(c.date / 1000)}} {{getHours(c.plageHoraire.dateDebut)}}:{{getMinutes(c.plageHoraire.dateDebut)}}-{{getHours(c.plageHoraire.dateFin)}}:{{getMinutes(c.plageHoraire.dateFin)}}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          <p>{{c.personne}}</p>
+          <p>{{c.idEnfant.prenom}}</p>
           <div style="text-align: center;">
           <ion-button (click)="accept(c)">ACCEPTER</ion-button>
           <ion-button color="danger" (click)="refuse(c)">REFFUSER</ion-button>

@@ -10,13 +10,14 @@
         <img src="../../assets/sofa.svg" alt="">
         <ion-item>
             <ion-label position="floating">Adresse Email</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="login.mail"></ion-input>
         </ion-item>
         <ion-item class="last">
             <ion-label position="floating">Mot de passe</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="login.password"></ion-input>
         </ion-item>
-        <ion-button size="large" expand="block" fill="outline" [routerLink]="['/parents']">Se connecter</ion-button>
+        <ion-label *ngIf="wrongCredentials" color="danger">Mauvais mail / mot de passe</ion-label>
+        <ion-button size="large" expand="block" fill="outline" (click)="loginParent()">Se connecter</ion-button>
     </div>
     <div class="container" *ngIf="router.url === '/login/student'">
         <img src="../../assets/student.svg" alt="">
@@ -38,8 +39,9 @@
         <img src="../../assets/child.svg" alt="">
         <ion-item class="last">
             <ion-label position="floating">Code</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="childCode"></ion-input>
         </ion-item>
-        <ion-button size="large" expand="block" fill="outline" [routerLink]="['/enfant']">Se connecter</ion-button>
+        <ion-label *ngIf="wrongCredentials" color="danger">Mauvais mail / mot de passe</ion-label>
+        <ion-button size="large" expand="block" fill="outline" (click)="loginEnfant()">Se connecter</ion-button>
     </div>
 </ion-content>

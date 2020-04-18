@@ -10,6 +10,9 @@ export class EtudiantService {
 
   private baseUrl = environment.baseUrl;
 
+  listAfterResearch = [];
+  lessonParams = {};
+
   constructor(private http: HttpClient) { }
 
   postStudent(student): Observable<any> {
@@ -18,5 +21,9 @@ export class EtudiantService {
 
   loginStudent(credentials): Observable<any> {
     return this.http.post(`${this.baseUrl}/etudiant/login`, credentials);
+  }
+
+  findManyStudents(search): Observable<any> {
+    return this.http.post(`${this.baseUrl}/etudiant/teach`, search);
   }
 }

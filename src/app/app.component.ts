@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UtilisateurService } from './services/utilisateur.service';
+import { log } from 'util';
 
 @Component({
   selector: 'app-root',

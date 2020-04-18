@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000'
+  baseUrl: 'https://backend-7ghohworyq-ew.a.run.app'
 };
 
 /*

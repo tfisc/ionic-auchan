@@ -12,6 +12,18 @@
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header> -->
-  <ion-button expand="block" (click)="startVideo()">REJOINDRE LE COURS</ion-button>
+  <div class="container">
+    <ng-container *ngIf="loading">
+      <ion-spinner duration="1000" color="primary" name="crescent"></ion-spinner>
+      <ion-label>Chargement de la salle de cours, veuillez patienter</ion-label>
+    </ng-container>
+
+    <ng-container *ngIf="!loading">
+      <ion-button (click)="startVideo()">Rejoindre la salle de cours</ion-button>
+      <ion-button>Terminer le cours</ion-button>
+    </ng-container>
+  </div>
+
+
 
 </ion-content>
